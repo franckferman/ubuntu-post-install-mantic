@@ -549,6 +549,37 @@ configure_hardening() {
 }
 
 
+install_deb_from_url() {
+    : '
+    Download and install a .deb package.
+    
+    Args:
+        url (str): URL to the .deb file.
+    '
+    local url=$1
+
+    echo "Downloading .deb package from $url..."
+    echo
+
+    curl -LO "$url" || { echo "Download failed! Exiting."; exit 1; }
+    
+    local deb_name=$(basename "$url")
+
+    echo
+    echo "Installing $deb_name..."
+    echo
+    sudo dpkg -i "$deb_name" || { echo "Installation failed! Attempting to fix dependencies..."; sudo apt-get install -f; }
+
+    echo
+    echo "$deb_name installed successfully."
+    
+    echo
+    echo "Cleaning up..."
+    rm "$deb_name"
+    echo "Temporary file removed."
+}
+
+
 install_basic_apps() {
     : '
     Installing basic applications.
@@ -557,10 +588,17 @@ install_basic_apps() {
     echo "[*] Basic application installation..."
     echo
     
-    sudo apt install nala zulucrypt-gui keepassxc vim git curl tmux bat lsd mat2 rssguard python3 python3-pip python3-venv gnome-software sudo apt install gnome-software gnome-maps gnome-weather gnome-calendar gnome-clocks gnome-shell-extension-manager gnome-tweaks -y
+    sudo apt install nala zulucrypt-gui keepassxc vim git curl wget tmux bat lsd mat2 rssguard python3 python3-pip python3-venv gnome-software gnome-software gnome-maps gnome-weather gnome-calendar gnome-clocks gnome-shell-extension-manager gnome-tweaks hicolor-icon-theme gnome-menus mailcap desktop-file-utils -y
     # junior-art, junior-config, junior-doc, junior-education, junior-games-adventure, junior-games-arcade, junior-games-card, junior-games-gl, junior-games-net, junior-games-puzzle, junior-games-sim, junior-games-text, junior-internet, junior-math, junior-programming, junior-sound, junior-system, junior-tasks, junior-toys, junior-typing, junior-video, junior-writing
     # 0ad
-    
+    echo
+    sudo snap refresh
+    echo
+    sudo snap install xmind --classic
+    sudo snap install obsidian --classic
+    echo
+    install_deb_from_url "https://mullvad.net/download/app/deb/latest"
+
     echo
     echo "[*] Basic application installation completed..."
 }
