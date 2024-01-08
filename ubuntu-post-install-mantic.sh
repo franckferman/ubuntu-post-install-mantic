@@ -660,7 +660,7 @@ install_basic_apps() {
     echo "[*] Basic application installation."
     echo -e "-----------------------------\n"
     
-    sudo apt install nala zulucrypt-gui keepassxc vim git curl tmux lsd mat2 rssguard python3 python3-pip python3-venv zsh taskwarrior net-tools
+    sudo apt install nala zulucrypt-gui keepassxc vim git curl tmux mat2 rssguard python3 python3-pip python3-venv zsh taskwarrior net-tools
     # gnome-software gnome-shell-extension-manager gnome-tweaks hicolor-icon-theme gnome-menus desktop-file-utils gnome-maps gnome-weather gnome-calendar gnome-clocks 
     # 0ad junior-*
     echo
@@ -668,6 +668,7 @@ install_basic_apps() {
     echo
     sudo snap install xmind --classic
     sudo snap install obsidian --classic
+    sudo snap install lsd
     echo
     install_deb_from_url "https://mullvad.net/download/app/deb/latest"
     echo -e "\n[*] Basic application installation completed."
