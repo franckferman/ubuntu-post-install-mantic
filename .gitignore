@@ -1,0 +1,102 @@
+# ==============================
+# 🖥️  Shell/Bash Scripts
+# ==============================
+
+# Temporary and backup scripts
+*.bak
+*.swp
+*.swo
+*.swn
+*.orig
+*.tmp
+*.old
+
+# Log and debug files
+*.log
+*.log.*
+*.out
+*.err
+*.trace
+nohup.out
+
+# Generated files
+*.pid
+*.lock
+*.sock
+*.history
+
+# ==============================
+# 🛠️  Compilation & Binaries
+# ==============================
+
+# Binary files (compiled)
+bin/
+obj/
+*.o
+*.so
+*.a
+*.la
+*.lo
+*.dylib
+*.exe
+*.dll
+*.com
+
+# Results for `make`
+Makefile~
+*.d
+
+# ==============================
+# 📝  Text editors
+# ==============================
+
+# Vim
+*.swp
+*.swo
+*.swn
+*.viminfo
+
+# Nano
+.nanorc
+*.save
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# JetBrains (PyCharm, IntelliJ, WebStorm)
+.idea/
+*.iml
+
+# Emacs
+*~
+# Spacemacs
+*.spacemacs
+
+# ==============================
+# 💾  Operating systems
+# ==============================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100/
+.Trashes/
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+*.lnk
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*.lock
+*~
+
