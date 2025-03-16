@@ -1,0 +1,5 @@
+# .gitattributes
+
+# Exclude all files inside the assets folder (including fonts and subfolders) from GitHub language statistics
+assets/** linguist-generated
+
